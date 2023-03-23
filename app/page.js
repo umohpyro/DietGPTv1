@@ -5,7 +5,7 @@ import { Wave, Random } from 'react-animated-text'
 
 import { marked } from 'marked'
 import parse from 'html-react-parser'
-import SearchCard from '@/components/Search'
+//import SearchCard from '@/components/Search'
 
 export default function Home () {
   const messageRef = useRef()
@@ -24,11 +24,16 @@ export default function Home () {
     setLoading(true)
 
     let newMessageList = [
-      ...messages,
+          ...messages,
       {
         role: 'user',
-        content: "respond in pidgin english always "+prompt
+        content: prompt
       }
+      // {
+      //   role: 'system',
+      //   content: "respond in pidgin english always"
+      // },
+
     ]
     messageRef.current.value = ''
     try {
@@ -71,23 +76,21 @@ export default function Home () {
               : ''}`}
           >
             <div className='absolute h-[35px] w-[35px] -z-10 bg-blue-400 -right-[18px] top-[50%] rotate-45' />
-            <h3 className='text-2xl text-white bold'>DietGPT say:</h3>
+            <h3 className='text-4xl text-white bold'>DietGPT say:</h3>
             <p className='text-white'>
               {loading
                 ? //  '[DietGPT dey think]'
-                  <>
                     <Wave
-                      text='DietGPT dey think'
+                      text='make i reason am, a moment please...'
                       effect='stretch'
                       effectChange={5.0}
                     />
-                  </>
                 : parse(marked(displayMessage))}
             </p>
           </div>
 
           <div >
-            <Image className='sm:top' alt='DietGPT' src='/bot.png' width={512} height={512} />
+            <Image alt='DietGPT' src='/bot.png' width={512} height={512} />
           </div>
         </div>
         {/* <SearchCard  /> */}
