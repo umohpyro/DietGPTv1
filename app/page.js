@@ -68,7 +68,7 @@ export default function Home () {
 
   return (
     <main className='md:container mx-auto max-w-5xl px-4'>
-      <div className='h-screen mt-5'>
+      <div className='mt-5'>
         <div className='md:grid grid-cols-2'>
           <div
             className={`bg-blue-400 relative rounded-2xl py-4 px-4 flex flex-col justify-center items-center text-justify ${loading
